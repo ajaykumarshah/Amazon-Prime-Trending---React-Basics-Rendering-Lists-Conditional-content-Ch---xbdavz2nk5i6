@@ -21,3 +21,15 @@
 button {
   min-width: 80px;
 }
+
+.container {
+  height: 200px;
+  width: 200px;
+  background-color: blueviolet;
+
+  display: inline-block;
+  color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
