@@ -5,7 +5,7 @@ import Data from '../data';
 const App = ({ slides }) => {
   // console.log(slides);
 
-
+  const [index, setIndex] = useState(0);
 
   let updated = slides.map((element, index) => {
     return <div className="container" key={element.title + index}>
@@ -16,7 +16,7 @@ const App = ({ slides }) => {
   })
 
   // for iterating in updated
-  const [index, setIndex] = useState(0);
+
 
 
 
@@ -41,10 +41,10 @@ const App = ({ slides }) => {
   }
   return (
     <>
-      <button onClick={goprev} data-testid="button-prev" disabled={indexcondition}  >Prev</button>
+      <button onClick={goprev} data-testid="button-prev" disabled={index == 0}  >Prev</button>
       {updated[index]}
       <button onClick={gonext} data-testid="button-next" disabled={index == slides.length - 1}>Next</button>
-      <button onClick={restart1} data-testid="button-restart"> Restart</button>
+      <button onClick={restart1} data-testid="button-restart" disabled={index == 0} > Restart</button>
     </>
   )
 }
