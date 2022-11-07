@@ -9,8 +9,8 @@ const App = ({ slides }) => {
 
   let updated = slides.map((element, index) => {
     return <div className="container" key={element.title + index}>
-      <h1 > {element.title}</h1> <br />
-      <p> {element.text}</p>
+      <h1 data-testid="title" > {element.title}</h1> <br />
+      <p data-testid="text"> {element.text}</p>
 
     </div>
   })
@@ -44,7 +44,7 @@ const App = ({ slides }) => {
       <button onClick={goprev} data-testid="button-prev" disabled={indexcondition}  >Prev</button>
       {updated[index]}
       <button onClick={gonext} data-testid="button-next" disabled={index == slides.length - 1}>Next</button>
-      <button onClick={restart1} data-testid="button-restart"> restart</button>
+      <button onClick={restart1} data-testid="button-restart"> Restart</button>
     </>
   )
 }
