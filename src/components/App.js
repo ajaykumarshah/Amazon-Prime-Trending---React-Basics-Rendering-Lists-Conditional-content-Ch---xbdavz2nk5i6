@@ -8,11 +8,11 @@ const App = ({ slides }) => {
   const [index, setIndex] = useState(0);
 
   let updated = slides.map((element, index) => {
-    return <div className="container" key={element.title + index}>
+    return <slides className="container" key={element.title + index}>
       <h1 data-testid="title" > {element.title}</h1> <br />
       <p data-testid="text"> {element.text}</p>
 
-    </div>
+    </slides>
   })
 
   // for iterating in updated
