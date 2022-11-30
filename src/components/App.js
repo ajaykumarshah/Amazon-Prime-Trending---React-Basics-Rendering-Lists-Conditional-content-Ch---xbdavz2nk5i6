@@ -2,51 +2,39 @@ import React, { Component, useState } from "react";
 import '../styles/App.css';
 import Data from '../data';
 
-const App = ({ slides }) => {
+const App = (props) => {
   // console.log(slides);
+
+  const [slides, setSlides] = useState(props.slides);
 
   const [index, setIndex] = useState(0);
 
-  let updated = slides.map((element, index) => {
-    return <slides className="container" key={element.title + index}>
-      <h1 data-testid="title" > {element.title}</h1> <br />
-      <p data-testid="text"> {element.text}</p>
-
-    </slides>
-  })
-
-  // for iterating in updated
-
-
-
-
-  let indexcondition = index === 0;
-  // console.log(indexcondition);
-
-  // const [images, setImages] = useState(slides[slides]);
-  const goprev = (event) => {
-    index == 0 ? event.target.disable : "";
-    setIndex(() => index - 1);
-  }
-
-  const gonext = () => {
-
-    // console.log(index);
-    setIndex(() => index + 1);
-  }
-
-  const restart1 = () => {
-
-    setIndex(() => 0);
-  }
   return (
-    <>
-      <button onClick={goprev} data-testid="button-prev" disabled={index == 0}  >Prev</button>
-      {updated[index]}
-      <button onClick={gonext} data-testid="button-next" disabled={index == slides.length - 1}>Next</button>
-      <button onClick={restart1} data-testid="button-restart" disabled={index == 0} > Restart</button>
-    </>
-  )
+
+    <div id='main'>
+
+      <div className="nav">
+
+        <button data-testid="button-restart" disabled={index === 0} onClick={() => (setIndex(0))}>Restart</button>
+
+        <button data-testid="button-prev" disabled={index === 0} onClick={() => (setIndex(index - 1))}>Prev</button>
+
+        <button data-testid="button-next" disabled={index === props.slides.length - 1} onClick={() => (setIndex(index + 1))}>Next</button>
+
+      </div>
+
+      <div className='slide'>
+
+        <h1 data-testid="title">{slides[index].title}</h1>
+
+        <p data-testid="text">{slides[index].text}</p>
+
+      </div>
+
+    </div>
+
+  );
+
 }
 
 
